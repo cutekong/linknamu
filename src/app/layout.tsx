@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Black_Han_Sans, IBM_Plex_Sans_KR } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// 본문 글꼴: 개발자 느낌이 나는 깔끔한 한글 글꼴
+const plexKr = IBM_Plex_Sans_KR({
+  variable: "--font-plex-kr",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// 제목(이름) 글꼴: 두껍고 힘 있는 한글 글꼴
+const blackHan = Black_Han_Sans({
+  variable: "--font-black-han",
+  weight: "400",
   subsets: ["latin"],
 });
 
@@ -21,7 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ko"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${plexKr.variable} ${blackHan.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
