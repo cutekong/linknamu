@@ -5,7 +5,8 @@ import type { LinkItem } from "@/data/profile";
 export default function LinkCard({ link, index }: { link: LinkItem; index: number }) {
   return (
     <a
-      href={link.url}
+      // 우리 서버(/go/링크id)를 거쳐 클릭 수를 기록한 뒤 진짜 주소로 이동합니다.
+      href={`/go/${link.id}`}
       target="_blank"
       rel="noopener noreferrer"
       style={{ animationDelay: `${200 + index * 90}ms` }}
